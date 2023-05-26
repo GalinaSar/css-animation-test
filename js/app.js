@@ -164,6 +164,13 @@
     };
     const da = new DynamicAdapt("max");
     da.init();
+    document.querySelectorAll(".faq__question").forEach((item => item.addEventListener("click", (() => {
+        const parent = item.parentNode;
+        if (parent.classList.contains("faq__active")) parent.classList.remove("faq__active"); else {
+            document.querySelectorAll("faq__item").forEach((child => child.classList.remove(faq__active)));
+            parent.classList.add("faq__active");
+        }
+    }))));
     window["FLS"] = true;
     isWebp();
     menuInit();
